@@ -25,13 +25,12 @@ public class SocketVar {
 
 
         try (FileWriter writer_file = new FileWriter("site.txt", false)) {
-            writer_file.write("<!DOCTYPE html>\n");
             String line;
             boolean flag = true;
 
             while ((line = reader.readLine()) != null) {
                 if (flag) {
-                    if (line.toLowerCase().startsWith("<!doctype html>")) {
+                    if (line.equals("")) {
                         flag = false;
                     } else {
                         System.out.println(line);

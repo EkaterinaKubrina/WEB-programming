@@ -4,11 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="css/style.css">
 <title>Правила</title>
 </head>
 <body>
-    <?php include('templates/header.php'); ?>
+    <header class="site-header">
+    <a href="index.html" title="" class="logo">
+        <img src="images/chess.png" alt="шахматы" />
+    </a>
+    <nav class="header-categories">
+        <a class="header-category" href="rules.html">правила</a>
+        <a class="header-category" href="play.html">играть</a>
+    </nav>
+</header>
     <div class="rules1">
     <h2>Полная запись</h2>
     <p>Для записи хода шашки сначала указывается поле, на котором она стояла, а затем через дефис ("‑") указывается поле, на которое шашка ставится.
@@ -44,7 +52,11 @@
    Белые сдались</article>
    </div>
    
-   <?php include('templates/footer.php'); ?>
+   <footer>
+    <p class="footer-text"> © Екатерина Кубрина </p> 
+    <p class="footer-text"> katty9999@mail.ru </p>                   
+    <p class="footer-text"> г.Омск </p>
+</footer>
 
 
 </body>

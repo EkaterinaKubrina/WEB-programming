@@ -41,7 +41,7 @@ import './App.css';
             <HeaderTitle style={body1}>Какой посмотреть?</HeaderTitle>
         </HeaderTitleWrapper>
     <HeaderContent>
-        <Button onPress={() => this.props.navigation.goBack()} >Выход</Button>
+        <Button>Выход</Button>
     </HeaderContent>
 </HeaderRoot>
 

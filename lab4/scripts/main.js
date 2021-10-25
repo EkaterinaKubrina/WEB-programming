@@ -16,9 +16,9 @@ const boardExample1 = [[0, 0, 0, 0, 0, 0, 0, 0],
 [4, 0, 0, 0, 2, 0, 2, 0],
 [0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 2, 0],
-[0, 0, 0, 1, 0, 2, 0, 0],
-[0, 0, 0, 0, 0, 0, 0, 0],
 [0, 0, 0, 1, 0, 0, 0, 0],
+[0, 0, 0, 0, 0, 0, 0, 0],
+[0, 0, 0, 1, 0, 2, 0, 0],
 ];
 
 var promptMode = { //режим подсказки
@@ -27,17 +27,39 @@ var promptMode = { //режим подсказки
     "nextMove": 1
 };
 
+var normalMode = {
+    "redFlag": false,
+    "checker": [],
+};
+
+
+
 
 function whatIsIt(a, b) {
     if (!promptMode.on) {
         if (board[a][b] != 0) {
             if (board[a][b] == promptMode.nextMove || board[a][b] == promptMode.nextMove + 2) {
-                if (canMove(a, b)) {
-                    promptMode.on = true;
-                    promptMode.checker[0] = a;
-                    promptMode.checker[1] = b;
-                    document.getElementById("" + a + b).style.backgroundColor = '#c3c35d';
+                if (normalMode.redFlag) {
+                    console.log("РЕЖИМ КРАСНОГО ФЛАГА");
+                    if (normalMode.checker.includes("" + a + b)) {
+                        console.log("СОДЕРЖИТСЯ В СПИСКЕ КРАСНЫХ");
+                        canMove(a, b);
+                        promptMode.on = true;
+                        promptMode.checker[0] = a;
+                        promptMode.checker[1] = b;
+                        document.getElementById("" + a + b).style.backgroundColor = '#c3c35d';
+                    }
                 }
+                else {
+                    console.log("РЕЖИМ ЗЕЛЕНОГО ФЛАГА");
+                    if (canMove(a, b)) {
+                        promptMode.on = true;
+                        promptMode.checker[0] = a;
+                        promptMode.checker[1] = b;
+                        document.getElementById("" + a + b).style.backgroundColor = '#c3c35d';
+                    }
+                }
+
             }
 
         }
@@ -62,18 +84,32 @@ function whatIsIt(a, b) {
                 promptMode.nextMove = 1;
             }
             makeMove(promptMode.checker[0], promptMode.checker[1], a, b);
+            checkRed();
         }
 
         else if (backgroundColor == "rgb(195, 93, 93)") { //красный
             exitModePrompt();
-            promptMode.on = false;
-            if (promptMode.nextMove == 1) {
-                promptMode.nextMove = 2;
+            makeRedMove(promptMode.checker[0], promptMode.checker[1], a, b);
+            if (canMoveNoPrompt(a, b)) {
+                normalMode.checker = [];
+                normalMode.redFlag = true;
+                normalMode.checker.push("" + a + b);
+                canMove(a, b);
+                promptMode.on = true;
+                promptMode.checker[0] = a;
+                promptMode.checker[1] = b;
+                document.getElementById("" + a + b).style.backgroundColor = '#c3c35d';
             }
             else {
-                promptMode.nextMove = 1;
+                if (promptMode.nextMove == 1) {
+                    promptMode.nextMove = 2;
+                }
+                else {
+                    promptMode.nextMove = 1;
+                }
+                promptMode.on = false;
+                checkRed();
             }
-            makeRedMove(promptMode.checker[0], promptMode.checker[1], a, b);
         }
 
     }
@@ -82,18 +118,18 @@ function whatIsIt(a, b) {
 }
 
 
+
 function canMove(a, b) { //функция вовзращает true, если у шашки есть доступные поля для хода и подсвечивает эти поля
     let aPlus = a + 1;
     let aMinus = a - 1;
     let bPlus = b + 1;
     let bMinus = b - 1;
-    let redFlag = false;
     let canMoveBool = false;
 
     while (aMinus > -1) {
         if (bMinus > -1) {
             if (board[aMinus][bMinus] == 0) {
-                if (board[a][b] != 1) {
+                if (board[a][b] != 1 && !normalMode.redFlag) {
                     canMoveBool = true;
                     document.getElementById("" + aMinus + bMinus).style.backgroundColor = '#5dc37e';
                 }
@@ -119,7 +155,7 @@ function canMove(a, b) { //функция вовзращает true, если у
         }
         if (bPlus < 8) {
             if (board[aMinus][bPlus] == 0) {
-                if (board[a][b] != 2) {
+                if (board[a][b] != 2 && !normalMode.redFlag) {
                     canMoveBool = true;
                     document.getElementById("" + aMinus + bPlus).style.backgroundColor = '#5dc37e';
                 }
@@ -162,7 +198,7 @@ function canMove(a, b) { //функция вовзращает true, если у
     while (aPlus < 8) {
         if (bMinus > -1) {
             if (board[aPlus][bMinus] == 0) {
-                if (board[a][b] != 1) {
+                if (board[a][b] != 1 && !normalMode.redFlag) {
                     canMoveBool = true;
                     document.getElementById("" + aPlus + bMinus).style.backgroundColor = '#5dc37e';
                 }
@@ -190,7 +226,7 @@ function canMove(a, b) { //функция вовзращает true, если у
         }
         if (bPlus < 8) {
             if (board[aPlus][bPlus] == 0) {
-                if (board[a][b] != 2) {
+                if (board[a][b] != 2 && !normalMode.redFlag) {
                     canMoveBool = true;
                     document.getElementById("" + aPlus + bPlus).style.backgroundColor = '#5dc37e';
                 }
@@ -226,12 +262,87 @@ function canMove(a, b) { //функция вовзращает true, если у
         }
     }
 
-    if (redFlag) {
-        onlyRedMove();
-    }
-
     return canMoveBool;
 }
+
+
+function canMoveNoPrompt(a, b) {
+    let aPlus = a + 1;
+    let aMinus = a - 1;
+    let bPlus = b + 1;
+    let bMinus = b - 1;
+    let localRedFlag = false;
+
+    while (aMinus > -1) {
+        if (bMinus > -1) {
+            if (board[aMinus][bMinus] == 0) {
+            }
+            else if (aMinus - 1 > -1 && bMinus - 1 > -1) {
+                if (!equals(aMinus, bMinus, a, b) && board[aMinus - 1][bMinus - 1] == 0) {
+                    localRedFlag = true;
+                }
+                bMinus = -2;
+            }
+        }
+        if (bPlus < 8) {
+            if (board[aMinus][bPlus] == 0) {
+            }
+            else if (aMinus - 1 > -1 && bPlus + 1 < 8) {
+                if (!equals(aMinus, bPlus, a, b) && board[aMinus - 1][bPlus + 1] == 0) {
+                    localRedFlag = true;
+                }
+                bPlus = 9;
+            }
+        }
+        if (board[a][b] > 2) {
+            aMinus--;
+            bMinus--;
+            bPlus++;
+        }
+        else {
+            aMinus = -2;
+        }
+    }
+
+    bPlus = b + 1;
+    bMinus = b - 1;
+
+    while (aPlus < 8) {
+        if (bMinus > -1) {
+            if (board[aPlus][bMinus] == 0) {
+            }
+            else if (aPlus + 1 < 8 && bMinus - 1 > -1) {
+                if (!equals(aPlus, bMinus, a, b) && board[aPlus + 1][bMinus - 1] == 0) {
+                    localRedFlag = true;
+                }
+                bMinus = -2;
+
+            }
+        }
+        if (bPlus < 8) {
+            if (board[aPlus][bPlus] == 0) {
+            }
+            else if (aPlus + 1 < 8 && bPlus + 1 < 8) {
+                if (!equals(aPlus, bPlus, a, b) && board[aPlus + 1][bPlus + 1] == 0) {
+                    localRedFlag = true;
+                }
+                bPlus = 9;
+
+            }
+        }
+        if (board[a][b] > 2) {
+            aPlus++;;
+            bPlus++;
+            bMinus--;
+        }
+        else {
+            aPlus = 9;
+        }
+    }
+
+    return localRedFlag;
+}
+
 
 
 function exitModePrompt() {
@@ -241,14 +352,6 @@ function exitModePrompt() {
     }
 }
 
-function onlyRedMove() { //оставляет доступными для хода только красные поля
-    const darks = document.querySelectorAll('.dark');
-    for (let i = 0; i < darks.length; i++) {
-        if (darks[i].style.backgroundColor == "rgb(93, 195, 126)") {
-            darks[i].style.backgroundColor = '#4D4847';
-        }
-    }
-}
 
 function makeMove(a, b, newA, newB) { //тихий ход
     document.getElementById("" + a + b).textContent = '';
@@ -270,7 +373,7 @@ function makeRedMove(a, b, newA, newB) { //ударный ход
             while (board[a + i][b - i] == 0) {
                 i++;
             }
-            document.getElementById( "" + (a + i) + (b - i)).textContent = '';
+            document.getElementById("" + (a + i) + (b - i)).textContent = '';
             board[a + i][b - i] = 0;
         }
 
@@ -288,7 +391,7 @@ function makeRedMove(a, b, newA, newB) { //ударный ход
             while (board[a - i][b - i] == 0) {
                 i++;
             }
-            document.getElementById( "" + (a - i) + (b - i)).textContent = '';
+            document.getElementById("" + (a - i) + (b - i)).textContent = '';
             board[a - i][b - i] = 0;
         }
 
@@ -297,7 +400,7 @@ function makeRedMove(a, b, newA, newB) { //ударный ход
     makeMove(a, b, newA, newB);
 }
 
-function move(a, b, color) { 
+function move(a, b, color) {
     let sq = document.getElementById("" + a + b);
     if (color == 1 || color == 3) {
         if (b != 7 && color == 1) {
@@ -335,7 +438,7 @@ function equals(a, b, a2, b2) { //проверяет что шашки один�
 function showExample() {
     board = [];
     board = boardExample1;
-    promptMode.nextMove = 1;
+    promptMode.nextMove = 2;
     promptMode.on = false;
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
@@ -358,6 +461,7 @@ function showExample() {
             }
         }
     }
+    checkRed();
 }
 
 function show() {
@@ -367,10 +471,10 @@ function show() {
     promptMode.on = false;
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
-            if (board[i][j] == 0) {
+            if (boardExample[i][j] == 0) {
                 document.getElementById("" + i + j).textContent = '';
             }
-            else if (board[i][j] == 1) {
+            else if (boardExample[i][j] == 1) {
                 document.getElementById("" + i + j).textContent = '⚪';
             }
             else {
@@ -379,6 +483,25 @@ function show() {
             }
         }
     }
+    checkRed();
 }
 
+
+
+function checkRed() {
+    normalMode.redFlag = false;
+    normalMode.checker = [];
+
+    for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < 8; j++) {
+            if (board[i][j] == promptMode.nextMove || board[i][j] == promptMode.nextMove + 2) {
+                if (canMoveNoPrompt(i, j)) {
+                    normalMode.redFlag = true;
+                    normalMode.checker.push("" + i + j);
+                }
+            }
+        }
+    }
+
+}
 

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="css/style.css">
+<title>Играть</title>
+</head>
+<body>
+    <header class="site-header">
+    <a href="index.html" title="" class="logo">
+        <img src="images/chess.png" alt="шахматы" />
+    </a>
+    <nav class="header-categories">
+        <a class="header-category" href="rules.html">правила</a>
+        <a class="header-category" href="play.html">играть</a>
+    </nav>
+</header>
+  <div class="checkers">
+  <table class="checkers-board">
+            <tbody>
+                <tr>
+                    <th></th>
+                    <th>a</th>
+                    <th>b</th>
+                    <th>c</th>
+                    <th>d</th>
+                    <th>e</th>
+                    <th>f</th>
+                    <th>g</th>
+                    <th>h</th>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <td class="light" id="07"  onclick = "javascript:whatIsIt(0, 7)"></td>
+                    <td class="dark" id="17" onclick = "javascript:whatIsIt(1, 7)"></td>
+                    <td class="light" id="27" onclick = "javascript:whatIsIt(2, 7)"></td>
+                    <td class="dark" id="37" onclick = "javascript:whatIsIt(3, 7)"></td>
+                    <td class="light" id="47" onclick = "javascript:whatIsIt(4, 7)"></td>
+                    <td class="dark" id="57" onclick = "javascript:whatIsIt(5, 7)"></td>
+                    <td class="light" id="67" onclick = "javascript:whatIsIt(6, 7)"></td>
+                    <td class="dark" id="77" onclick = "javascript:whatIsIt(7, 7)"></td>
+                </tr>
+                <tr>
+                    <th>7</th>
+                    <td class="dark" id="06" onclick = "javascript:whatIsIt(0, 6)"></td> 
+                    <td class="light" id="16" onclick = "javascript:whatIsIt(1, 6)"></td>
+                    <td class="dark" id="26" onclick = "javascript:whatIsIt(2, 6)"></td>
+                    <td class="light" id="36" onclick = "javascript:whatIsIt(3, 6)"></td>
+                    <td class="dark" id="46" onclick = "javascript:whatIsIt(4, 6)"></td>
+                    <td class="light" id="56" onclick = "javascript:whatIsIt(5, 6)"></td>
+                    <td class="dark" id="66" onclick = "javascript:whatIsIt(6, 6)"></td>
+                    <td class="light" id="76" onclick = "javascript:whatIsIt(7, 6)"></td>
+                </tr>
+                <tr>
+                    <th>6</th>
+                    <td class="light" id="05" onclick = "javascript:whatIsIt(0, 5)"></td>
+                    <td class="dark" id="15" onclick = "javascript:whatIsIt(1, 5)"></td>
+                    <td class="light" id="25" onclick = "javascript:whatIsIt(2, 5)"></td>
+                    <td class="dark" id="35" onclick = "javascript:whatIsIt(3, 5)"></td>
+                    <td class="light" id="45" onclick = "javascript:whatIsIt(4, 5)"></td>
+                    <td class="dark" id="55" onclick = "javascript:whatIsIt(5, 5)"></td>
+                    <td class="light" id="65" onclick = "javascript:whatIsIt(6, 5)"></td>
+                    <td class="dark" id="75" onclick = "javascript:whatIsIt(7, 5)"></td>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <td class="dark" id="04" onclick = "javascript:whatIsIt(0, 4)"></td>
+                    <td class="light" id="14" onclick = "javascript:whatIsIt(1, 4)"></td>
+                    <td class="dark" id="24" onclick = "javascript:whatIsIt(2, 4)"></td>
+                    <td class="light" id="34" onclick = "javascript:whatIsIt(3, 4)"></td>
+                    <td class="dark" id="44" onclick = "javascript:whatIsIt(4, 4)"></td>
+                    <td class="light" id="54" onclick = "javascript:whatIsIt(5, 4)"></td>
+                    <td class="dark" id="64" onclick = "javascript:whatIsIt(6, 4)"></td>
+                    <td class="light" id="74" onclick = "javascript:whatIsIt(7, 4)"></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td class="light" id="03" onclick = "javascript:whatIsIt(0, 3)"></td>
+                    <td class="dark" id="13" onclick = "javascript:whatIsIt(1, 3)"></td>
+                    <td class="light" id="23" onclick = "javascript:whatIsIt(2, 3)"></td>
+                    <td class="dark" id="33" onclick = "javascript:whatIsIt(3, 3)"></td>
+                    <td class="light" id="43" onclick = "javascript:whatIsIt(4, 3)"></td>
+                    <td class="dark" id="53" onclick = "javascript:whatIsIt(5, 3)"></td>
+                    <td class="light" id="63" onclick = "javascript:whatIsIt(6, 3)"></td>
+                    <td class="dark" id="73" onclick = "javascript:whatIsIt(7, 3)"></td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td class="dark" id="02" onclick = "javascript:whatIsIt(0, 2)"></td>
+                    <td class="light" id="12" onclick = "javascript:whatIsIt(1, 2)"></td>
+                    <td class="dark" id="22" onclick = "javascript:whatIsIt(2, 2)"></td>
+                    <td class="light" id="32" onclick = "javascript:whatIsIt(3, 2)"></td>
+                    <td class="dark" id="42" onclick = "javascript:whatIsIt(4, 2)"></td>
+                    <td class="light" id="52" onclick = "javascript:whatIsIt(5, 2)"></td>
+                    <td class="dark" id="62" onclick = "javascript:whatIsIt(6, 2)"></td>
+                    <td class="light" id="72" onclick = "javascript:whatIsIt(7, 2)"></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td class="light" id="01" onclick = "javascript:whatIsIt(0, 1)"></td>
+                    <td class="dark" id="11" onclick = "javascript:whatIsIt(1, 1)"></td>
+                    <td class="light" id="21" onclick = "javascript:whatIsIt(2, 1)"></td>
+                    <td class="dark" id="31" onclick = "javascript:whatIsIt(3, 1)"></td>
+                    <td class="light" id="41" onclick = "javascript:whatIsIt(4, 1)"></td>
+                    <td class="dark" id="51" onclick = "javascript:whatIsIt(5, 1)"></td>
+                    <td class="light" id="61" onclick = "javascript:whatIsIt(6, 1)"></td>
+                    <td class="dark" id="71" onclick = "javascript:whatIsIt(7, 1)"></td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td class="dark" id="00" onclick = "javascript:whatIsIt(0, 0)"></td>
+                    <td class="light" id="10" onclick = "javascript:whatIsIt(1, 0)"></td>
+                    <td class="dark" id="20" onclick = "javascript:whatIsIt(2, 0)"></td>
+                    <td class="light" id="30" onclick = "javascript:whatIsIt(3, 0)"></td>
+                    <td class="dark" id="40" onclick = "javascript:whatIsIt(4, 0)"></td>
+                    <td class="light" id="50" onclick = "javascript:whatIsIt(5, 0)"></td>
+                    <td class="dark" id="60" onclick = "javascript:whatIsIt(6, 0)"></td>
+                    <td class="light" id="70" onclick = "javascript:whatIsIt(7, 0)"></td>
+                </tr>
+            </tbody>
+        </table>
+
+<div class="records">
+<br>
+
+<a class="example" href="#"  onclick = "javascript:show()">начало</a>
+<a class="example" href="#"  onclick = "javascript:showExample()">пример</a>
+<br>
+
+<h1>Запись ходов</h1>
+</div>
+
+
+</div>
+
+
+   <footer>
+    <p class="footer-text"> © Екатерина Кубрина </p> 
+    <p class="footer-text"> katty9999@mail.ru </p>                   
+    <p class="footer-text"> г.Омск </p>
+</footer>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>

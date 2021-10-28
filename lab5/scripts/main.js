@@ -457,6 +457,11 @@ function equals(a, b, a2, b2) { //проверяет что шашки один�
 
 
 function show(mode) {
+    exitModePrompt();
+    hiddenMoveMode();
+    moveMode.on = false;
+    promptMode.on = false;
+    normalMode.oneMoveFlag = false;
     if (mode == 1) {
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
@@ -479,7 +484,6 @@ function show(mode) {
         text = "1.x-x "
         blackMode();
     }
-    promptMode.on = false;
     for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
             if (board[i][j] == 0) {

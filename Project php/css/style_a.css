@@ -1,0 +1,34 @@
+
+.main-text-aboutus {
+margin:0 5%;
+font-size:3vmin;
+font-family:'Arial Narrow';
+color:#444442;
+border: 0.5vmin solid #b0d3ec;
+border-radius:40px;
+padding: 4vmin;
+}
+
+
+.main-text-header-aboutus{
+margin:11vmin 10vmin 4vmin;
+font-size:5vmin;
+font-family:'BebasBook';
+color:#444442;
+background-clip: content-box;
+}
+
+
+
+.blocks-aboutus{
+margin:12.5vmin 3vmin;
+font-size:3.5vmin;
+font-family:'Arial Narrow';
+color:#444442;
+}
+
+.blocks-aboutus-im img {
+float:left;
+width: 40vmin;
+margin:0vmin 3vmin;
+}

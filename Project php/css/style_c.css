@@ -1,0 +1,376 @@
+
+@media (min-width: 0px){
+    
+.contacts{
+display: inline-block;
+width: 100%;
+margin:0vmin 8vmin;
+}
+
+.contacts h{
+margin:4vmin;
+font-size:5vmin;
+font-family:'BebasBook';
+color:#575756;
+}
+
+.contacts a{
+margin:4vmin;
+font-size:3.3vmin;
+font-family:'BebasBook';
+color:#575756;
+}
+
+
+.contacts img {
+margin:0vmin 25vmin;
+width: 12vmin;
+height: 12vmin;
+}
+
+.modal .text .call {
+        text-decoration:none;
+        margin-left: auto;
+        margin-right: auto;
+        font-size:3.5vmin;
+        font-family:'BebasRegular';
+        background:#FF9933;
+        color:#575756;
+        border: 0.3vmin solid #575756;
+        padding: 2vmin;
+}
+
+.modal .text .formNameC {
+        margin-left: auto;
+        margin-right: auto;
+        font-family:'Arial Narrow';
+        background:#eeeeee;
+        font-size:2.3vmin;
+        border: 0.3vmin solid #575756;
+        color:#575756;
+        width: 30vmin;
+}
+
+.modal .text .formNumber {
+        margin-left: auto;
+        margin-right: auto;
+        font-family:'Arial Narrow';
+        background:#eeeeee;
+        font-size:2.3vmin;
+        border: 0.3vmin solid #575756;
+        color:#575756;
+        width: 30vmin;
+    }
+}
+
+
+@media (min-width: 992px){
+    
+.contacts{
+display: inline-block;
+width: 40%;
+}
+
+.contacts h{
+margin:4vmin;
+font-size:5vmin;
+font-family:'BebasBook';
+color:#575756;
+}
+
+.contacts a{
+margin:4vmin;
+font-size:3.3vmin;
+font-family:'BebasBook';
+color:#575756;
+}
+
+
+.contacts img {
+margin:0vmin 20vmin;
+width: 10vmin;
+height: 10vmin;
+}
+
+.modal .text .call {
+        text-decoration:none;
+        margin-left: auto;
+        margin-right: auto;
+        font-size:3.5vmin;
+        font-family:'BebasRegular';
+        background:#FF9933;
+        color:#575756;
+        border: 0.3vmin solid #575756;
+        padding: 2vmin;
+}
+
+.modal .text .formNameC {
+        margin-left: auto;
+        margin-right: auto;
+        font-family:'Arial Narrow';
+        background:#eeeeee;
+        font-size:2.3vmin;
+        border: 0.3vmin solid #575756;
+        color:#575756;
+        width: 30vmin;
+}
+
+.modal .text .formNumber {
+        margin-left: auto;
+        margin-right: auto;
+        font-family:'Arial Narrow';
+        background:#eeeeee;
+        font-size:2.3vmin;
+        border: 0.3vmin solid #575756;
+        color:#575756;
+        width: 30vmin;
+    }
+}
+
+
+@media (min-width: 1366px){
+    
+.contacts{
+display:inline-table;
+width: 25%;
+}
+
+.contacts h{
+margin:14vmin 1vmin;
+font-size:5vmin;
+font-family:'BebasBook';
+color:#575756;
+}
+
+.contacts a{
+margin:1vmin;
+font-size:3.3vmin;
+font-family:'BebasBook';
+color:#575756;
+}
+
+
+.contacts img {
+margin:0vmin 10vmin;
+width: 10vmin;
+height: 10vmin;
+}
+
+
+
+.modal .text .call {
+        text-decoration:none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:3vmin;
+        font-size:3vmin;
+        font-family:'BebasRegular';
+        background:#FF9933;
+        color:#575756;
+        border: 0.3vmin solid #575756;
+        padding: 1vmin;
+}
+
+.modal .text .formNameC {
+        margin-left: auto;
+        margin-right: auto;
+        font-family:'Arial Narrow';
+        background:#eeeeee;
+        font-size:2.2vmin;
+        border: 0.3vmin solid #575756;
+        color:#575756;
+        width: 30vmin;
+}
+
+.modal .text .formNumber {
+        margin-left: auto;
+        margin-right: auto;
+        font-family:'Arial Narrow';
+        background:#eeeeee;
+        font-size:2.2vmin;
+        border: 0.3vmin solid #575756;
+        color:#575756;
+        width: 30vmin;
+    }
+}
+
+
+
+.windowRequest-contacts {
+margin:0vmin 3vmin 0vmin 0vmin;
+background:#FF9933;
+width: 38vmin; 
+float:right;
+height:23vmin;
+border: 0.1vmin solid #575756;
+border-radius: 30%;
+}
+
+
+
+/* Контейнер */
+.modal {
+
+/* Слой перекрытия */
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0,0,0,0.5);
+z-index: 10000;
+
+/* Трансформации прозрачности при открытии  */
+-webkit-transition: opacity 500ms ease-in;
+-moz-transition: opacity 500ms ease-in;
+transition: opacity 500ms ease-in;
+
+/* Скрываем изначально */
+opacity: 0;
+pointer-events: none;
+}
+
+/* Показываем модальное окно */
+.modal:target {
+opacity: 1;
+pointer-events: auto;
+}
+
+/* Содержание */
+.modal > div {
+width: 40vmin;
+background: #ffffff;
+position: relative;
+margin: 10% auto;
+
+/* По умолчанию минимизируем анимацию */
+-webkit-animation: minimise 500ms linear;
+
+/* Придаем хороший вид */
+padding: 30px;
+-moz-border-radius: 7px;
+border-radius: 7px;
+-webkit-box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+-moz-box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+text-shadow: 0 1px 0 #fff;
+}
+
+/* Изменяем анимацию при открытии модального окна*/
+.modal:target > div {
+-webkit-animation-name: bounce;
+}
+
+.modal h2 {
+font-size: 36px;
+padding: 0 0 20px;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+   -webkit-transform: scale3d(0.1,0.1,1);
+   -webkit-box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+  }
+  55% {
+   -webkit-transform: scale3d(1.08,1.08,1);
+   -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0);
+  }
+  75% {
+   -webkit-transform: scale3d(0.95,0.95,1);
+   -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.9);
+  }
+  100% {
+   -webkit-transform: scale3d(1,1,1);
+   -webkit-box-shadow: 0 3px 20px rgba(0,0,0,0.9);
+  }
+}
+
+@-webkit-keyframes minimise {
+  0% {
+   -webkit-transform: scale3d(1,1,1);
+  }
+  100% {
+   -webkit-transform: scale3d(0.1,0.1,1);
+  }
+}
+
+/* Ссылка на кнопку Закрыть */
+.modal a[href="#close"] {
+position: absolute;
+right: 0;
+top: 0;
+color: transparent;
+}
+
+/* Сбрасываем изменения */
+.modal a[href="#close"]:focus {
+outline: none;
+}
+
+/* Создаем кнопку Закрыть */
+.modal a[href="#close"]:after {
+content: 'X';
+display: block;
+
+/* Позиционируем */
+position: absolute;
+right: -10px;
+top: -10px;
+width: 20px;
+padding: 1px 1px 1px 2px;
+
+/* Стили */
+text-decoration: none;
+text-shadow: none;
+text-align: center;
+font-weight: bold;
+background: #000;
+color: #ffffff;
+border: 3px solid #ffffff;
+-moz-border-radius: 20px;
+border-radius: 20px;
+-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.modal a[href="#close"]:focus:after,
+.modal a[href="#close"]:hover:after {
+-webkit-transform: scale(1.1,1.1);
+-moz-transform: scale(1.1,1.1);
+}
+
+.modal a[href="#close"]:focus:after {
+outline: 0px solid #000;
+}
+
+/* Открываем модальное окно */
+a.openModal {
+}
+
+a.openModal:hover,
+a.openModal:focus {
+}
+
+
+a.openModal{
+        text-decoration:none;
+        border: 0.9vmin solid #575756;
+        font-size:3.5vmin;
+        font-family:'BebasBook';
+        padding: 1.2vmin;
+        color:#575756;
+}
+
+.modal .modal_title {
+  display: block;
+  text-align: center;
+  font-size: 22pt;
+}
+
+.modal .text{
+    margin:4vmin;
+    font-size:5vmin;
+    font-family:'BebasBook';
+    color:#575756;
+}

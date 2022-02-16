@@ -92,7 +92,7 @@ header .header-category:hover {
 .main-image {
 	margin: 11vmin 0vmin;
 	height: 100vmin;
-	background-image: url(fon1.jpg);
+	background-image: url(fon1.JPG);
 	background-size: 100% 100%;
 }
 
@@ -176,8 +176,6 @@ ul li a:hover {
 	font-family: 'Jura-Regular';
 	color: #4D4847;
 }
-
-
 
 
 .checkers-board td {

@@ -329,7 +329,7 @@ function markSquaresCaptureMove(a, b) { //отмечает красные кле
 
 
 
-function canMoveNoPrompt(a, b) { //проверяет, что шашка может ходить (без раскрашивания клеток)
+function canMoveNoPrompt(a, b) { //проверяет, что шашка может ходить без раскрашивания клеток
 
     let aPlus = a + 1, aMinus = a - 1, bPlus = b + 1, bMinus = b - 1, localRedFlag = false;
 

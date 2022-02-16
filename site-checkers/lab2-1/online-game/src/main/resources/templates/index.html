@@ -10,12 +10,12 @@
 </head>
 <body>
 <header class="site-header">
-    <a href="/" title="" class="logo">
+    <a href="/" th:href="@{/}" title="" class="logo">
         <img src="images/chess.png" alt="шахматы" />
     </a>
     <nav class="header-categories">
-        <a class="header-category" href="/rules">правила</a>
-        <a class="header-category" href="/play">играть</a>
+        <a class="header-category" href="/rules" th:href="@{/rules}">правила</a>
+        <a class="header-category" href="/play" th:href="@{/play}">играть</a>
     </nav>
 </header>
 

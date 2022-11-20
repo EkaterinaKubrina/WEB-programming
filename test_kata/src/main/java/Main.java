@@ -115,36 +115,12 @@ public class Main {
         if (num > 0) {
             StringBuilder res = new StringBuilder();
             while (num > 0) {
-                if (num == RomanSystem.C.getAnInt()) {
-                    res.append(RomanSystem.C.getValue());
-                } else if (num >= RomanSystem.C.getAnInt() - RomanSystem.L.getAnInt()) {
-                    res.append(RomanSystem.L.getValue());
-                    res.append(RomanSystem.C.getValue());
-                    num = num - RomanSystem.C.getAnInt() - RomanSystem.L.getAnInt();
-                } else if (num >= RomanSystem.L.getAnInt()) {
-                    res.append(RomanSystem.L.getValue());
-                    num = num - RomanSystem.L.getAnInt();
-                } else if (num >= RomanSystem.L.getAnInt() - RomanSystem.X.getAnInt()) {
-                    res.append(RomanSystem.X.getValue());
-                    res.append(RomanSystem.L.getValue());
-                    num = num - RomanSystem.L.getAnInt() - RomanSystem.X.getAnInt();
-                } else if (num >= RomanSystem.X.getAnInt()) {
-                    res.append(RomanSystem.X.getValue());
-                    num = num - RomanSystem.X.getAnInt();
-                } else if (num >= RomanSystem.X.getAnInt() - RomanSystem.I.getAnInt()) {
-                    res.append(RomanSystem.I.getValue());
-                    res.append(RomanSystem.X.getValue());
-                    num = num - RomanSystem.X.getAnInt() - RomanSystem.I.getAnInt();
-                } else if (num >= RomanSystem.V.getAnInt()) {
-                    res.append(RomanSystem.V.getValue());
-                    num = num - RomanSystem.V.getAnInt();
-                } else if (num >= RomanSystem.V.getAnInt() - RomanSystem.I.getAnInt()) {
-                    res.append(RomanSystem.I.getValue());
-                    res.append(RomanSystem.V.getValue());
-                    num = num - RomanSystem.V.getAnInt() - RomanSystem.I.getAnInt();
-                } else {
-                    res.append(RomanSystem.I.getValue());
-                    num = num - RomanSystem.I.getAnInt();
+                for(RomanSystem r: RomanSystem.values()){
+                    if(num >= r.getAnInt()){
+                        res.append(r.getValue());
+                        num = num - r.getAnInt();
+                        break;
+                    }
                 }
             }
             return res.toString();

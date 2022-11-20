@@ -1,6 +1,8 @@
 package com.checker.onlinegame.models;
 
 import lombok.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,6 +26,8 @@ public class Game {
     private boolean oneMoveFlag;
     private int nextMove;
     private int num;
+    @Transient
+    private static final Logger log = LoggerFactory.getLogger(Game.class);
 
 
     public Game(int id, int status, String records, int[][] board, boolean redFlag, ArrayList<Integer> checkerKill, boolean oneMoveFlag, int nextMove, int num) {
@@ -93,10 +97,10 @@ public class Game {
         StringBuilder text = new StringBuilder();
         if (nextMove == 1) {
             text.append("\n").append("Белые сдались");
-            System.out.println("Game -" + id + ": " + "Белые сдались");
+            log.info("Партия №" + id + ": Белые сдались.");
         } else {
             text.append("\n").append("Черные сдались");
-            System.out.println("Game -" + id + ": " + "Черные сдались");
+            log.info("Партия №" + id + ": Черные сдались.");
         }
         records = records + text;
         nextMove = 0;
@@ -444,7 +448,7 @@ public class Game {
 
         if (redMove && canMoveNoPrompt(newA, newB)) {
             oneMoveFlag = true;
-            addMove( a, b, newA, newB, true);
+            addMove(a, b, newA, newB, true);
             checkerKill.clear();
             checkerKill.add(newA);
             checkerKill.add(newB);
@@ -493,7 +497,7 @@ public class Game {
                     text.append("-");
                 }
                 text.append(latterOfNum(toA)).append(toB + 1).append(" ");
-                System.out.println("Game -" + id + ": " + text);
+                log.info("Партия №" + id + ": Белый игрок делает ход " + text);
                 records = records + text;
             } else {
                 text.append(latterOfNum(fromA)).append(fromB + 1);
@@ -504,7 +508,7 @@ public class Game {
                 }
                 text.append(latterOfNum(toA)).append(toB + 1);
 
-                System.out.println("Game -" + id + ": " + text);
+                log.info("Партия №" + id + ": Черный игрок делает ход " + text);
 
                 int check = checkLoss();
                 if (check == 0) {
@@ -512,10 +516,10 @@ public class Game {
                     text.append("\n").append(num).append(".");
                 } else if (check == 1) {
                     text.append("\n").append("Белые сдались");
-                    System.out.println("Game -" + id + ": " + "Белые сдались");
+                    log.info("Партия №" + id + ": Белые сдались.");
                 } else {
                     text.append("\n").append("Черные сдались");
-                    System.out.println("Game -" + id + ": " + "Черные сдались");
+                    log.info("Партия №" + id + ": Черные сдались.");
                 }
                 records = records + text;
             }

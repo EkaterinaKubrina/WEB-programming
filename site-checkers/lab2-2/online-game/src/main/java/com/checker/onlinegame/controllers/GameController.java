@@ -4,6 +4,8 @@ import com.checker.onlinegame.dto.response.DoMoveDtoResponse;
 import com.checker.onlinegame.dto.response.PlayDtoResponse;
 import com.checker.onlinegame.models.Game;
 import com.checker.onlinegame.repositories.GameRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class GameController {
-
+    private static final Logger log = LoggerFactory.getLogger(GameController.class);
     @Autowired
     private GameRepository gameRepository;
 
@@ -21,6 +23,7 @@ public class GameController {
         Game game = new Game(test.getStatus(), test.getRecords(), test.getBoard());
         game.newGame(mode);
         gameRepository.save(game);
+        log.info("Партия №" + game.getId() + ": Создана новая партия. ");
         return String.valueOf(game.getId());
     }
 
@@ -30,6 +33,7 @@ public class GameController {
         Game g = gameRepository.getById(id);
         int ans = g.endGame();
         gameRepository.save(g);
+        log.info("Партия №" + g.getId() + ": Партия окончена. ");
         return ans;
     }
 

@@ -18,7 +18,7 @@ public class Main {
         int operand1, operand2;
         boolean rimMode = false;
 
-        String[] arguments = input.trim().split(" ");
+        String[] arguments = input.replaceAll(" ", "").split("");
         if (arguments.length != 3) {
             throw new IllegalArgumentException("Формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
         }

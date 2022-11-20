@@ -16,34 +16,44 @@ public class Main {
 
     public static String calc(String input) {
         int operand1, operand2;
-        boolean rimMode = false;
+        Operator operation = null;
+        boolean romanMode = false;
+        String[] arguments = {};
 
-        String[] arguments = input.replaceAll(" ", "").split("");
-        if (arguments.length != 3) {
+        for (Operator o : Operator.values()) {
+            if (input.contains(o.getOperator())) {
+                arguments = input.replaceAll(" ", "").split(o.getOperatorForRegex());
+                operation = o;
+            }
+        }
+        if (operation == null){
+            throw new IllegalArgumentException("Некорректный символ операции");
+        }
+        if (arguments.length != 2) {
             throw new IllegalArgumentException("Формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
         }
 
         try {
             operand1 = Integer.parseInt(arguments[0]);
-            operand2 = Integer.parseInt(arguments[2]);
+            operand2 = Integer.parseInt(arguments[1]);
         } catch (NumberFormatException e) {
             operand1 = toArab(arguments[0].toUpperCase());
-            operand2 = toArab(arguments[2].toUpperCase());
-            rimMode = true;
+            operand2 = toArab(arguments[1].toUpperCase());
+            romanMode = true;
         }
 
-        if (rimMode) {
-            return toRim(calculate(operand1, operand2, arguments[1]));
+        if (romanMode) {
+            return toRim(calculate(operand1, operand2, operation));
         }
-        return String.valueOf(calculate(operand1, operand2, arguments[1]));
+        return String.valueOf(calculate(operand1, operand2, operation));
 
     }
 
     //функция вычисляет значение операции по двум операндам и оператору
-    private static int calculate(int operand1, int operand2, String operation) {
+    private static int calculate(int operand1, int operand2, Operator operation) {
         int res = 0;
         if (operand1 <= 10 && operand2 <= 10 && operand1 > 0 && operand2 > 0) {
-            switch (Operator.getOperator(operation)) {
+            switch (operation) {
                 case PLUS:
                     res = operand1 + operand2;
                     break;

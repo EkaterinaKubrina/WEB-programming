@@ -1,32 +1,21 @@
 public enum Operator {
-    PLUS("+"),
-    MINUS("-"),
-    MULTIPLICATION("*"),
-    DIVISION("/");
+    PLUS("+", "\\+"),
+    MINUS("-", "-"),
+    MULTIPLICATION("*", "\\*"),
+    DIVISION("/", "/");
     private String operator;
+    private String operatorForRegex;
 
-    Operator(String operator) {
+    Operator(String operator, String operatorForRegex) {
         this.operator = operator;
+        this.operatorForRegex = operatorForRegex;
     }
 
     public String getOperator() {
         return operator;
     }
 
-    public static Operator getOperator(String s) {
-        switch (s) {
-            case ("+"):
-                return PLUS;
-            case ("-"):
-                return MINUS;
-
-            case ("*"):
-                return MULTIPLICATION;
-
-            case ("/"):
-                return DIVISION;
-            default:
-                throw new IllegalArgumentException("Некорректный символ операции");
-        }
+    public String getOperatorForRegex() {
+        return operatorForRegex;
     }
 }

@@ -10,4 +10,4 @@ ekaterinakubrina99@gmail.com
 **В файле conf/conf.properties можно задать один из режимов: SQL, RAM, HIBERNATE**
 
 **Список запросов к серверу:**
-![Image req](https://github.com/EkaterinaKubrina/WEB-programming/raw/master/concert_project/request.png)
+![Image req](https://github.com/EkaterinaKubrina/WEB-programming/raw/master/concert_project/req.png)

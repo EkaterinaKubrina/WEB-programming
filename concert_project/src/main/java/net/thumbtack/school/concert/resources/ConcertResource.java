@@ -24,7 +24,7 @@ public class ConcertResource {
             userService = new UserService(new UserDaoImpl());
             songService = new SongService(new SongDaoImpl());
             dataService = new DataService(new DataDaoImpl());
-        } else {
+        } else if (mode == Mode.RAM){
             userService = new UserService(new net.thumbtack.school.concert.db.mydb.daoimplmydata.UserDaoImpl());
             songService = new SongService(new net.thumbtack.school.concert.db.mydb.daoimplmydata.SongDaoImpl());
             dataService = new DataService(new net.thumbtack.school.concert.db.mydb.daoimplmydata.DataDaoImpl());

@@ -26,7 +26,7 @@ public class Main {
                 operation = o;
             }
         }
-        if (operation == null){
+        if (operation == null) {
             throw new IllegalArgumentException("Некорректный символ операции");
         }
         if (arguments.length != 2) {
@@ -115,8 +115,8 @@ public class Main {
         if (num > 0) {
             StringBuilder res = new StringBuilder();
             while (num > 0) {
-                for(RomanSystem r: RomanSystem.values()){
-                    if(num >= r.getAnInt()){
+                for (RomanSystem r : RomanSystem.values()) {
+                    if (num >= r.getAnInt()) {
                         res.append(r.getValue());
                         num = num - r.getAnInt();
                         break;

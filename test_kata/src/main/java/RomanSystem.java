@@ -1,5 +1,4 @@
 public enum RomanSystem {
-
     C(100, "C"),
     LC(90, "LC"),
     L(50, "L"),

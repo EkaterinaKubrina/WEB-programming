@@ -49,13 +49,13 @@ header .logo img {
 }
 
 .footer-text {
-	margin: 3vmin 6vmin;
-	font-size: 1.8vmin;
+	margin: 5vmin 10vmin;
+	font-size: 2vmin;
 	color: #F4FFF8;
 }
 
 footer {
-	border-top: 0.8vmin solid #000F08;
+	border-top: 0.1vmin solid #000F08;
 	margin: 1;
 }
 
@@ -271,25 +271,48 @@ ul li a:hover {
 }
 
 .main h4 {
-	background-color: #8BAAAD;
-	padding: 1vmin 0;
-	margin: 3vmin 40vmin;
+	padding: 13vmin 0;
+	margin: 5vmin 80vmin;
 	font-size: 3vmin;
 	font-family: 'Jura-Bold';
-	color: #000F08;
+	color: #4FA670;
+	border-radius: 200px;
 	text-align: center;
+    border: 4px solid #4FA670;
 }
 
-.main p {
-	margin: 6vmin 8vmin;
-	font-size: 3vmin;
+.main .circles {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vmin;
+}
+
+.main p#p1 {
+	font-size: 2.8vmin;
+	margin: 5vmin 5vmin 15vmin 10vmin;
 	font-family: 'Jura-Medium';
 	color: #000F08;
+	display: inline-block;
+	padding: 1vmin;
+	border-radius: 10px;
+    border: 4px solid #C35D88;
+}
+.main p#p2 {
+	font-size: 2.8vmin;
+	margin: 15vmin 10vmin 5vmin 5vmin;
+	font-family: 'Jura-Medium';
+	color: #000F08;
+	display: inline-block;
+	padding: 1vmin;
+	border-radius: 10px;
+    border: 4px solid #E5AB6D;
 }
 
-.main mark {
-	background-color: #8BAAAD;
+.main h3 {
+	margin: 4vmin;
+	font-size: 3vmin;
 }
+
 
 .main ul li {
 	margin: 2vmin 10vmin;

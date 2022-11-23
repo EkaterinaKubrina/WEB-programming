@@ -1,0 +1,107 @@
+02:08:20.886 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m12s765ms872µs800ns).
+02:52:15.318 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m54s530µs400ns).
+14:51:19.381 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11h59m9s254ms735µs100ns).
+14:52:27.100 [restartedMain] INFO  c.c.onlinegame.OnlineGameApplication - No active profile set, falling back to default profiles: default
+14:52:27.280 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+14:52:27.285 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+14:52:28.920 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:52:29.064 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 123 ms. Found 1 JPA repository interfaces.
+14:52:30.981 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+14:52:31.005 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+14:52:31.006 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+14:52:31.006 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+14:52:31.193 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+14:52:31.193 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3903 ms
+14:52:31.573 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+14:52:31.672 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+14:52:31.992 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+14:52:32.165 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+14:52:32.346 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+14:52:32.402 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+14:52:33.573 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+14:52:33.585 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:52:34.189 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:52:34.781 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+14:52:35.420 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+14:52:35.455 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+14:52:35.496 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+14:52:35.557 [restartedMain] INFO  c.c.onlinegame.OnlineGameApplication - Started OnlineGameApplication in 9.276 seconds (JVM running for 10.67)
+14:52:35.924 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:52:35.925 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+14:52:35.930 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+14:52:39.905 [http-nio-8081-exec-6] INFO  c.c.o.controllers.GameController - Партия №23: Создана новая партия. 
+14:52:42.209 [http-nio-8081-exec-8] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход e3-f4 
+14:52:44.675 [http-nio-8081-exec-2] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход h6-g5
+14:52:46.789 [http-nio-8081-exec-5] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход f4:h6 
+14:52:48.808 [http-nio-8081-exec-10] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход f6-g5
+14:52:52.164 [http-nio-8081-exec-4] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход h6:f4 
+14:52:53.771 [http-nio-8081-exec-8] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход e7-f6
+14:52:55.910 [http-nio-8081-exec-2] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход g3-h4 
+14:53:00.844 [http-nio-8081-exec-5] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход f6-g5
+14:53:02.900 [http-nio-8081-exec-10] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход h4:f6 
+14:53:08.720 [http-nio-8081-exec-10] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход e5:g3
+14:53:14.002 [http-nio-8081-exec-4] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход h2:f4 
+14:53:16.867 [http-nio-8081-exec-7] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход d6-e5
+14:53:18.758 [http-nio-8081-exec-2] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход f4:d6 
+14:53:20.902 [http-nio-8081-exec-5] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход c7:e5
+14:53:28.789 [http-nio-8081-exec-10] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход f2-e3 
+14:53:31.899 [http-nio-8081-exec-4] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход d8-c7
+14:53:38.680 [http-nio-8081-exec-7] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход e3-d4 
+14:53:41.825 [http-nio-8081-exec-2] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход f8-e7
+14:53:46.746 [http-nio-8081-exec-8] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход f6:d8 
+14:53:49.831 [http-nio-8081-exec-3] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход b6-a5
+14:53:52.193 [http-nio-8081-exec-9] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход d8:b6 
+14:53:54.316 [http-nio-8081-exec-1] INFO  com.checker.onlinegame.models.Game - Партия №23: Игрок делает ход a5:c7
+14:53:58.269 [http-nio-8081-exec-4] INFO  com.checker.onlinegame.models.Game - Партия №23: Белые сдались.
+14:53:58.274 [http-nio-8081-exec-4] INFO  c.c.o.controllers.GameController - Партия №23: Партия окончена. 
+15:34:34.894 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=40m37s400ms919µs600ns).
+15:43:18.964 [http-nio-8081-exec-9] INFO  c.c.o.controllers.GameController - Партия №24: Создана новая партия. 
+15:43:24.863 [http-nio-8081-exec-8] INFO  com.checker.onlinegame.models.Game - Партия №24: Игрок делает ход g3-f4 
+15:43:27.206 [http-nio-8081-exec-4] INFO  com.checker.onlinegame.models.Game - Партия №24: Игрок делает ход h6-g5
+15:43:36.614 [http-nio-8081-exec-7] INFO  com.checker.onlinegame.models.Game - Партия №24: Игрок делает ход f4:h6 
+15:43:48.608 [http-nio-8081-exec-2] INFO  com.checker.onlinegame.models.Game - Партия №24: Игрок делает ход f6-g5
+15:43:50.410 [http-nio-8081-exec-5] INFO  com.checker.onlinegame.models.Game - Партия №24: Игрок делает ход h6:f4 
+15:43:53.330 [http-nio-8081-exec-10] INFO  c.c.o.controllers.GameController - Партия №25: Создана новая партия. 
+15:43:56.122 [http-nio-8081-exec-2] INFO  com.checker.onlinegame.models.Game - Партия №25: Игрок делает ход c1:g5
+15:46:07.276 [http-nio-8081-exec-5] INFO  com.checker.onlinegame.models.Game - Партия №25: Белые сдались.
+15:46:07.284 [http-nio-8081-exec-5] INFO  c.c.o.controllers.GameController - Партия №25: Партия окончена. 
+15:48:07.744 [http-nio-8081-exec-10] INFO  c.c.o.controllers.GameController - Партия №26: Создана новая партия. 
+15:49:00.370 [http-nio-8081-exec-3] INFO  com.checker.onlinegame.models.Game - Партия №26: Игрок делает ход c1:g5
+15:51:26.413 [http-nio-8081-exec-9] INFO  com.checker.onlinegame.models.Game - Партия №26: Белые сдались.
+15:51:26.420 [http-nio-8081-exec-9] INFO  c.c.o.controllers.GameController - Партия №26: Партия окончена. 
+15:51:37.584 [http-nio-8081-exec-5] INFO  c.c.o.controllers.GameController - Партия №27: Создана новая партия. 
+15:53:09.033 [http-nio-8081-exec-3] INFO  com.checker.onlinegame.models.Game - Партия №27: Игрок делает ход a3-b4 
+15:59:58.599 [restartedMain] INFO  c.c.onlinegame.OnlineGameApplication - Starting OnlineGameApplication using Java 11.0.8 on LAPTOP-ORH4JMAR with PID 47128 (C:\Users\katty\OdjectOrientedDesign\WEB-programming\site-checkers\lab2-2\online-game\target\classes started by katty in C:\Users\katty\OdjectOrientedDesign\WEB-programming\site-checkers\lab2-2\online-game)
+15:59:58.606 [restartedMain] INFO  c.c.onlinegame.OnlineGameApplication - No active profile set, falling back to default profiles: default
+15:59:58.731 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+15:59:58.732 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+16:00:00.022 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:00:00.127 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 85 ms. Found 1 JPA repository interfaces.
+16:00:01.542 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+16:00:01.563 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+16:00:01.564 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:00:01.564 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+16:00:01.778 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:00:01.778 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3045 ms
+16:00:02.109 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:00:02.217 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+16:00:02.625 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16:00:02.821 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:00:03.026 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:00:03.088 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+16:00:04.251 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:00:04.278 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:00:05.140 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:00:05.643 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+16:00:06.269 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:00:06.300 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+16:00:06.345 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+16:00:06.387 [restartedMain] INFO  c.c.onlinegame.OnlineGameApplication - Started OnlineGameApplication in 8.812 seconds (JVM running for 10.136)
+16:00:06.515 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:00:06.516 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:00:06.520 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+16:00:08.924 [http-nio-8081-exec-8] INFO  c.c.o.controllers.GameController - Партия №28: Создана новая партия. 
+16:00:11.032 [http-nio-8081-exec-1] INFO  com.checker.onlinegame.models.Game - Партия №28: Белый игрок делает ход g3-h4 
+16:00:12.990 [http-nio-8081-exec-7] INFO  com.checker.onlinegame.models.Game - Партия №28: Черный игрок делает ход f6-e5
+16:00:53.021 [http-nio-8081-exec-9] INFO  com.checker.onlinegame.models.Game - Партия №28: Белый игрок делает ход e3-d4 
+16:40:02.242 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=39m4s126ms736µs300ns).

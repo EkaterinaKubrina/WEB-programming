@@ -27,7 +27,7 @@ final class RepositoriesListView: BaseView {
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         
-        tableView.register(cellType: RepositoryTableViewCell.self)
+        tableView.register(cellType: RepositoryTableViewCellDetails.self)
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
         

@@ -47,7 +47,7 @@ final class RepositoriesListViewController: BaseViewController<RepositoriesListV
     
     private var configureCell: RxTableViewSectionedReloadDataSource<RepositorySection>.ConfigureCell {
         return { _, tableView, indexPath, repository -> UITableViewCell in
-            let cell = tableView.dequeueReusableCell(withCellType: RepositoryTableViewCell.self, forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withCellType: RepositoryTableViewCellDetails.self, forIndexPath: indexPath)
             
             cell.setModel(repository)
             

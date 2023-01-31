@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		20FFA4F7CB00AB8428DDA8A4 /* Pods_TestAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59060335B80F786E828A1ED8 /* Pods_TestAppTests.framework */; };
 		4A8C486D29878924001F72FC /* RepositoryTableViewCellDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C486C29878924001F72FC /* RepositoryTableViewCellDetails.swift */; };
+		4A8C486F29878DE1001F72FC /* RepositoriesListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C486E29878DE1001F72FC /* RepositoriesListCollectionViewController.swift */; };
+		4A8C48822987A11B001F72FC /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C48812987A11B001F72FC /* BaseCollectionViewController.swift */; };
+		4A8C48A42987AAFF001F72FC /* RepositoriesCollectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8C48A32987AAFF001F72FC /* RepositoriesCollectionListView.swift */; };
 		4A8EC49229822D80001A6196 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8EC49129822D80001A6196 /* AppDelegate.swift */; };
 		4A8EC49B29822D81001A6196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A8EC49A29822D81001A6196 /* Assets.xcassets */; };
 		4A8EC49E29822D81001A6196 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A8EC49C29822D81001A6196 /* LaunchScreen.storyboard */; };
@@ -72,6 +75,9 @@
 		05F48E8B5BFB9EF8E26BEC51 /* Pods_TestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4313E94E7AB258B7A28BF08F /* Pods-TestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.debug.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4A8C486C29878924001F72FC /* RepositoryTableViewCellDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCellDetails.swift; sourceTree = "<group>"; };
+		4A8C486E29878DE1001F72FC /* RepositoriesListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListCollectionViewController.swift; sourceTree = "<group>"; };
+		4A8C48812987A11B001F72FC /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
+		4A8C48A32987AAFF001F72FC /* RepositoriesCollectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesCollectionListView.swift; sourceTree = "<group>"; };
 		4A8EC48E29822D80001A6196 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8EC49129822D80001A6196 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A8EC49A29822D81001A6196 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 		4A8EC58329823BA0001A6196 /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
+				4A8C48812987A11B001F72FC /* BaseCollectionViewController.swift */,
 				4A8EC58429823BBC001A6196 /* BaseView.swift */,
 				4A8EC58629823BFA001A6196 /* BaseViewController.swift */,
 			);
@@ -258,6 +265,8 @@
 				4A8EC58F29823D46001A6196 /* RepositoriesListViewController.swift */,
 				4A8EC59029823D46001A6196 /* RepositoriesListInteractor.swift */,
 				4A8EC59129823D46001A6196 /* RepositoriesListView.swift */,
+				4A8C48A32987AAFF001F72FC /* RepositoriesCollectionListView.swift */,
+				4A8C486E29878DE1001F72FC /* RepositoriesListCollectionViewController.swift */,
 			);
 			path = RepositoriesList;
 			sourceTree = "<group>";
@@ -528,6 +537,7 @@
 				4A8EC4E729822ED9001A6196 /* ModalTransition.swift in Sources */,
 				4A8EC5BE29823FA4001A6196 /* RepositoryDetailsInteractor.swift in Sources */,
 				4A8EC58529823BBC001A6196 /* BaseView.swift in Sources */,
+				4A8C486F29878DE1001F72FC /* RepositoriesListCollectionViewController.swift in Sources */,
 				4A8EC59229823D46001A6196 /* RepositoriesListFactory.swift in Sources */,
 				4A8EC4DE29822ED9001A6196 /* UIViewController+ErrorDescription.swift in Sources */,
 				4A8EC49229822D80001A6196 /* AppDelegate.swift in Sources */,
@@ -539,6 +549,8 @@
 				4A8EC4C729822EBF001A6196 /* ClassIdentifiable.swift in Sources */,
 				4A8EC5A429823E86001A6196 /* GithubTarget.swift in Sources */,
 				4A8EC59429823D46001A6196 /* RepositoriesListRouter.swift in Sources */,
+				4A8C48A42987AAFF001F72FC /* RepositoriesCollectionListView.swift in Sources */,
+				4A8C48822987A11B001F72FC /* BaseCollectionViewController.swift in Sources */,
 				4A8EC4DB29822ED9001A6196 /* Toast.swift in Sources */,
 				4A8EC4E329822ED9001A6196 /* UIFont+Extensions.swift in Sources */,
 				4A8EC4E129822ED9001A6196 /* RxPresenter.swift in Sources */,

@@ -6,7 +6,7 @@
 //  Copyright © 2023 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-final class RepositoriesListRouter: Router<RepositoriesListViewController>, RepositoriesListRouter.Routes {
+final class RepositoriesListRouter: Router<RepositoriesListCollectionViewController>, RepositoriesListRouter.Routes {
 
     var openRepositoryDetailsTransition: Transition = PushTransition()
     

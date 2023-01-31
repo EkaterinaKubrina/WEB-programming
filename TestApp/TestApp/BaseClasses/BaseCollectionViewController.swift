@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class BaseCollectionViewController<View: UIView, Presenter: RxPresenter>: UICollectionViewController {
+class BaseCollectionViewController<View: UICollectionView, Presenter: RxPresenter>: UICollectionViewController {
     
     let presenter: Presenter
     
@@ -32,12 +32,12 @@ class BaseCollectionViewController<View: UIView, Presenter: RxPresenter>: UIColl
     func setupBindings() { }
     
     override func loadView() {
-        view = View()
+       view = View(frame: CGRect.zero, collectionViewLayout: collectionView)
     }
     
-    init(_ presenter: Presenter) {
+    init(collectionViewLayout layout: UICollectionViewLayout, _ presenter: Presenter) {
         self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
+        super.init(collectionViewLayout: layout)
     }
     
     required init?(coder: NSCoder) {

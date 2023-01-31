@@ -183,9 +183,17 @@ struct GithubRepository: Decodable {
         
         self.createdAt = createdAt
         self.updatedAt = updatedAt
-    
+        
         self.owner = owner
     }
-    
-    
+ 
+    static var sampleData = [
+        GithubRepository(id: 1, name: "NameRep", fullName: "FullNameRep", owner: GithubUser(id: 1, name: "Name", avatarUrl: "Image", htmlUrl: "Link"), url: "Url", language: "Language", description: "Description", createdAt: Date(), updatedAt: Date()),
+        
+        GithubRepository(id: 2, name: "NameRep2", fullName: "FullNameRep2", owner: GithubUser(id: 1, name: "Name", avatarUrl: "Image", htmlUrl: "Link"), url: "Url", language: "Language", description: "Description", createdAt: Date(), updatedAt: Date()),
+        
+        GithubRepository(id: 3, name: "NameRep3", fullName: "FullNameRep3", owner: GithubUser(id: 1, name: "Name", avatarUrl: "Image", htmlUrl: "Link"), url: "Url", language: "Language", description: "Description", createdAt: Date(), updatedAt: Date()),
+        
+        GithubRepository(id: 4, name: "NameRep4", fullName: "FullNameRep4", owner: GithubUser(id: 1, name: "Name", avatarUrl: "Image", htmlUrl: "Link"), url: "Url", language: "Language", description: "Description", createdAt: Date(), updatedAt: Date()),
+    ]
 }

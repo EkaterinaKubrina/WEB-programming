@@ -25,6 +25,8 @@ final class RepositoriesListPresenter {
 
     private let repositories: BehaviorRelay<[GithubRepository]> = .init(value: [])
     
+    private let repositoryObservable = PublishRelay<GithubRepository>()
+
     private let activityIndicator = ActivityIndicator()
 
     init(_ router: Router<RepositoriesListViewController>, _ interactor: RepositoriesListInteractor) {
@@ -42,6 +44,7 @@ extension RepositoriesListPresenter: RepositoriesListPresenterProtocol {
 
     struct Output {
         let repositories: Driver<[GithubRepository]>
+        let repositoryWasChanged: Driver<GithubRepository>
         let isLoading: Driver<Bool>
     }
 
@@ -68,19 +71,7 @@ extension RepositoriesListPresenter: RepositoriesListPresenterProtocol {
                 }
                 
                 detailsRoute.openRepositoryDetails(for: repo){ [unowned self] repository in
-                    var changedRepositories = repositories.value
-                    for i in 0..<changedRepositories.count {
-                        if(changedRepositories[i].id == repository.id){
-                                changedRepositories[i] = repository
-                                break;
-                        }
-                    }
-                    
-                    
-                    Observable.of(changedRepositories)
-                        .bind(to: repositories)
-                        .disposed(by: disposeBag)
-                    
+                    repositoryObservable.onNext(repository)
                 }
             }.disposed(by: disposeBag)
     }
@@ -88,6 +79,7 @@ extension RepositoriesListPresenter: RepositoriesListPresenterProtocol {
     func configureOutput(_ input: RepositoriesListPresenter.Input) -> RepositoriesListPresenter.Output {
         Output(
             repositories: repositories.asDriver(),
+            repositoryWasChanged: repositoryObservable.asDriver(onErrorJustReturn: GithubRepository(id: 1, name: "", fullName: "", owner: GithubUser(id: 1, name: ""), url: "", language: "", description: "", createdAt: Date(), updatedAt: Date())),
             isLoading: activityIndicator.asDriver()
         )
     }

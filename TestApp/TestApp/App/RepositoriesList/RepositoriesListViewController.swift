@@ -28,12 +28,12 @@ final class RepositoriesListViewController: BaseViewController<RepositoriesListV
         
         return indicator
     }()
-
+    
     override init(_ presenter: RepositoriesListPresenter) {
         super.init(presenter)
         
         navigationItem.rightBarButtonItem = .init(customView: activityIndicator)
-
+        
         title = "Repositories".localized
         
     }
@@ -43,7 +43,7 @@ final class RepositoriesListViewController: BaseViewController<RepositoriesListV
     }
     
     private static let debounceInterval: RxTimeInterval = .milliseconds(1_500)
-
+    
     override func setupBindings() {
         super.setupBindings()
         
@@ -89,6 +89,17 @@ final class RepositoriesListViewController: BaseViewController<RepositoriesListV
             }
         }).disposed(by: disposeBag)
         
+        output.repositoryWasChanged.drive { [self] repository in
+            for i in 0..<githubRepositoriesArray.count {
+                if(githubRepositoriesArray[i].id == repository.id){
+                    githubRepositoriesArray[i] = repository
+                    updateSnapshot(reloading: [repository.id])
+                    break;
+                }
+            }
+            
+        }.disposed(by: disposeBag)
+        
         output.isLoading
             .drive { [unowned self] isLoading in
                 if isLoading {
@@ -111,5 +122,5 @@ final class RepositoriesListViewController: BaseViewController<RepositoriesListV
         }
         dataSource.apply(snapshot)
     }
-
+    
 }

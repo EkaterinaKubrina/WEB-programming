@@ -113,14 +113,14 @@ final class RepositoryDetailsView: BaseView {
             return
         }
         repoName.text = "Repository: \(nameRepository)"
-        repoNameTextField.placeholder = nameRepository
+        repoNameTextField.text = nameRepository
         
         
         guard let nameUser = repository?.owner.name  else {
             return
         }
         userNameLabel.text = "Owner: \(nameUser)"
-        userNameTextField.placeholder = nameUser
+        userNameTextField.text = nameUser
         
         var updatedAtString = "Unknown".localized
         

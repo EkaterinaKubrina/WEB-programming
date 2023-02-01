@@ -34,6 +34,8 @@ final class RepositoriesListView: BaseView {
         return tableView
     }()
     
+    var collectionView: UICollectionView? = nil
+    
     let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         
@@ -45,10 +47,16 @@ final class RepositoriesListView: BaseView {
     override func setupSubviews() {
         super.setupSubviews()
         
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 1
+        flowLayout.minimumInteritemSpacing = 1
+        flowLayout.itemSize = CGSize(width: (UIScreen.main.bounds.width/2)-2,
+                                     height: (UIScreen.main.bounds.height/8)-8)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         
         backgroundColor = .white
         
-        addSubviews(searchBar, tableView)
+        addSubviews(searchBar, tableView, collectionView!)
         
         tableView.refreshControl = refreshControl
     }
@@ -61,7 +69,7 @@ final class RepositoriesListView: BaseView {
             .horizontally(pin.safeArea)
             .height(.searchBarHeight)
         
-        tableView.pin
+        collectionView?.pin
             .below(of: searchBar)
             .horizontally(pin.safeArea)
             .bottom(pin.safeArea)

@@ -14,6 +14,12 @@ import RxDataSources
 
 final class RepositoriesListViewController: BaseViewController<RepositoriesListView, RepositoriesListPresenter> {
     // MARK: - UI Bindings
+    typealias DataSource = UICollectionViewDiffableDataSource<Int, UInt>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, UInt>
+    
+    var dataSource: DataSource!
+    
+    var githubRepositoriesArray: [GithubRepository] = []
     
     private let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
@@ -25,7 +31,6 @@ final class RepositoriesListViewController: BaseViewController<RepositoriesListV
 
     override init(_ presenter: RepositoriesListPresenter) {
         super.init(presenter)
-        _view.tableView.reloadData()
         
         navigationItem.rightBarButtonItem = .init(customView: activityIndicator)
 
@@ -37,28 +42,23 @@ final class RepositoriesListViewController: BaseViewController<RepositoriesListV
         fatalError("init(coder:) has not been implemented")
     }
     
-    private typealias RepositorySection = SectionModel<String, GithubRepository>
-    
-    private lazy var dataSource: RxTableViewSectionedReloadDataSource<RepositorySection> = {
-        let dataSource = RxTableViewSectionedReloadDataSource<RepositorySection>(configureCell: configureCell)
-        
-        return dataSource
-    }()
-    
-    private var configureCell: RxTableViewSectionedReloadDataSource<RepositorySection>.ConfigureCell {
-        return { _, tableView, indexPath, repository -> UITableViewCell in
-            let cell = tableView.dequeueReusableCell(withCellType: RepositoryTableViewCellDetails.self, forIndexPath: indexPath)
-            
-            cell.setModel(repository)
-            
-            return cell
-        }
-    }
-    
     private static let debounceInterval: RxTimeInterval = .milliseconds(1_500)
 
     override func setupBindings() {
         super.setupBindings()
+        
+        let cellRegistration = UICollectionView.CellRegistration { (cell: RepositoryCollectionViewCell, indexPath: IndexPath, itemIdentifier: UInt) in
+            let githubRepository = self.githubRepositoriesArray[indexPath.item]
+            cell.setModel(githubRepository)
+        }
+        
+        dataSource = DataSource(collectionView: _view.collectionView!) { (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: UInt) in
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+        }
+        
+        updateSnapshot()
+        
+        _view.collectionView!.dataSource = dataSource
         
         let searchBarText = _view.searchBar.rx.text.unwrap()
             .ignore("")
@@ -69,9 +69,10 @@ final class RepositoriesListViewController: BaseViewController<RepositoriesListV
             .map { _ in () }
             .withLatestFrom(searchBarText)
         
-        let repositorySelected = _view.tableView.rx
-            .modelSelected(GithubRepository.self)
-            .asObservable()
+        
+        let repositorySelected = _view.collectionView!.rx.itemSelected.map { IndexPath in
+            return self.githubRepositoriesArray[IndexPath.item]
+        }.asObservable()
         
         
         let input = RepositoriesListPresenter.Input(
@@ -81,11 +82,12 @@ final class RepositoriesListViewController: BaseViewController<RepositoriesListV
         
         let output = presenter.buildOutput(with: input)
         
-        output.repositories
-            .map { [RepositorySection(model: "", items: $0)] }
-            .drive(_view.tableView.rx.items(dataSource: dataSource))
-            .disposed(by: disposeBag)
-        
+        output.repositories.drive({ arrayObservable in
+            arrayObservable.subscribe { [self] array in
+                githubRepositoriesArray = array
+                updateSnapshot()
+            }
+        }).disposed(by: disposeBag)
         
         output.isLoading
             .drive { [unowned self] isLoading in
@@ -98,4 +100,16 @@ final class RepositoriesListViewController: BaseViewController<RepositoriesListV
             }
             .disposed(by: disposeBag)
     }
+    
+    func updateSnapshot(reloading idsThatChanged: [UInt] = []) {
+        let ids = idsThatChanged.filter { id in githubRepositoriesArray.contains(where: { $0.id == id }) }
+        var snapshot = Snapshot()
+        snapshot.appendSections([0])
+        snapshot.appendItems(githubRepositoriesArray.map { $0.id })
+        if !ids.isEmpty {
+            snapshot.reloadItems(ids)
+        }
+        dataSource.apply(snapshot)
+    }
+
 }

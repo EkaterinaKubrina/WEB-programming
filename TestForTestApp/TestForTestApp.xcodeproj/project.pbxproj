@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A877F23298A0D0F00FF4419 /* RepositoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A877F22298A0D0F00FF4419 /* RepositoryCollectionViewCell.swift */; };
+		4A877F27298A108000FF4419 /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A877F26298A108000FF4419 /* UIImageView+Kingfisher.swift */; };
+		4A877F2A298A111100FF4419 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4A877F29298A111100FF4419 /* Kingfisher */; };
+		4A877F2D298A114E00FF4419 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 4A877F2C298A114E00FF4419 /* PinLayout */; };
 		4A8F7BEF2989029C002D1D80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F7BEE2989029C002D1D80 /* AppDelegate.swift */; };
 		4A8F7BF12989029C002D1D80 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F7BF02989029C002D1D80 /* SceneDelegate.swift */; };
 		4A8F7BF32989029C002D1D80 /* GithubRepositoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F7BF22989029C002D1D80 /* GithubRepositoryCollectionViewController.swift */; };
@@ -31,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A877F22298A0D0F00FF4419 /* RepositoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4A877F26298A108000FF4419 /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		4A8F7BEB2989029C002D1D80 /* TestForTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestForTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8F7BEE2989029C002D1D80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A8F7BF02989029C002D1D80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,8 +62,10 @@
 				4A8F7C0D2989034A002D1D80 /* RxSwift in Frameworks */,
 				4A8F7C0B2989034A002D1D80 /* RxRelay in Frameworks */,
 				4A8F7C2529890506002D1D80 /* RxSwiftExt in Frameworks */,
+				4A877F2A298A111100FF4419 /* Kingfisher in Frameworks */,
 				4A8F7C1C298904A7002D1D80 /* CombineMoya in Frameworks */,
 				4A8F7C1E298904A7002D1D80 /* Moya in Frameworks */,
+				4A877F2D298A114E00FF4419 /* PinLayout in Frameworks */,
 				4A8F7C22298904A7002D1D80 /* RxMoya in Frameworks */,
 				4A8F7C092989034A002D1D80 /* RxCocoa in Frameworks */,
 				4A8F7C20298904A7002D1D80 /* ReactiveMoya in Frameworks */,
@@ -91,6 +99,7 @@
 				4A8F7C02298902BA002D1D80 /* Models */,
 				4A8F7BEE2989029C002D1D80 /* AppDelegate.swift */,
 				4A8F7BF02989029C002D1D80 /* SceneDelegate.swift */,
+				4A877F26298A108000FF4419 /* UIImageView+Kingfisher.swift */,
 				4A8F7BF42989029C002D1D80 /* Main.storyboard */,
 				4A8F7BF72989029D002D1D80 /* Assets.xcassets */,
 				4A8F7BF92989029D002D1D80 /* LaunchScreen.storyboard */,
@@ -113,6 +122,7 @@
 			children = (
 				4A8F7BF22989029C002D1D80 /* GithubRepositoryCollectionViewController.swift */,
 				4A8F7C0F2989043C002D1D80 /* GithubRepositoriesInteractor.swift */,
+				4A877F22298A0D0F00FF4419 /* RepositoryCollectionViewCell.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -153,6 +163,8 @@
 				4A8F7C1F298904A7002D1D80 /* ReactiveMoya */,
 				4A8F7C21298904A7002D1D80 /* RxMoya */,
 				4A8F7C2429890506002D1D80 /* RxSwiftExt */,
+				4A877F29298A111100FF4419 /* Kingfisher */,
+				4A877F2C298A114E00FF4419 /* PinLayout */,
 			);
 			productName = TestForTestApp;
 			productReference = 4A8F7BEB2989029C002D1D80 /* TestForTestApp.app */;
@@ -186,6 +198,8 @@
 				4A8F7C072989034A002D1D80 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				4A8F7C1A298904A7002D1D80 /* XCRemoteSwiftPackageReference "Moya" */,
 				4A8F7C2329890506002D1D80 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
+				4A877F28298A111100FF4419 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4A877F2B298A114E00FF4419 /* XCRemoteSwiftPackageReference "PinLayout" */,
 			);
 			productRefGroup = 4A8F7BEC2989029C002D1D80 /* Products */;
 			projectDirPath = "";
@@ -215,12 +229,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A8F7C1629890466002D1D80 /* GithubTarget.swift in Sources */,
+				4A877F23298A0D0F00FF4419 /* RepositoryCollectionViewCell.swift in Sources */,
 				4A8F7BF32989029C002D1D80 /* GithubRepositoryCollectionViewController.swift in Sources */,
 				4A8F7C1729890466002D1D80 /* NetworkService.swift in Sources */,
 				4A8F7C102989043C002D1D80 /* GithubRepositoriesInteractor.swift in Sources */,
 				4A8F7C05298902DE002D1D80 /* GithubUser.swift in Sources */,
 				4A8F7C1829890466002D1D80 /* NetworkServiceProtocol.swift in Sources */,
 				4A8F7C06298902DE002D1D80 /* GithubRepository.swift in Sources */,
+				4A877F27298A108000FF4419 /* UIImageView+Kingfisher.swift in Sources */,
 				4A8F7BEF2989029C002D1D80 /* AppDelegate.swift in Sources */,
 				4A8F7BF12989029C002D1D80 /* SceneDelegate.swift in Sources */,
 				4A8F7C1929890466002D1D80 /* NetworkError.swift in Sources */,
@@ -441,6 +457,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4A877F28298A111100FF4419 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		4A877F2B298A114E00FF4419 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		4A8F7C072989034A002D1D80 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -468,6 +500,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4A877F29298A111100FF4419 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A877F28298A111100FF4419 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		4A877F2C298A114E00FF4419 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A877F2B298A114E00FF4419 /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
 		4A8F7C082989034A002D1D80 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4A8F7C072989034A002D1D80 /* XCRemoteSwiftPackageReference "RxSwift" */;

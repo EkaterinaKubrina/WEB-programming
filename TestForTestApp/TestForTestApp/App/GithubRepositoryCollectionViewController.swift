@@ -9,8 +9,8 @@ import UIKit
 import RxSwift
 
 class GithubRepositoryCollectionViewController: UICollectionViewController {
-    typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, String>
+    typealias DataSource = UICollectionViewDiffableDataSource<Int, UInt>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, UInt>
     
     var dataSource: DataSource!
     
@@ -24,6 +24,8 @@ class GithubRepositoryCollectionViewController: UICollectionViewController {
     
     let repositories = PublishSubject<[GithubRepository]>()
     
+    var githubRepositoriesArray: [GithubRepository] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,50 +36,23 @@ class GithubRepositoryCollectionViewController: UICollectionViewController {
         let flowLayout = flowLayout()
         collectionView.collectionViewLayout = flowLayout
         
-        let cellRegistration = UICollectionView.CellRegistration { (cell: UICollectionViewListCell, indexPath: IndexPath, itemIdentifier: String) in
-            _ = self.repositories.subscribe { array in
-                let githubRepository = array[indexPath.item]
-                _ = self.publishSubject.element(at: indexPath.item).subscribe { image in
-                    var contentConfiguration = cell.defaultContentConfiguration()
-                    contentConfiguration.text = githubRepository.fullName
-                    contentConfiguration.secondaryText = githubRepository.url
-                    contentConfiguration.image = image
-                    cell.contentConfiguration = contentConfiguration
-                    print(githubRepository.fullName, image.hashValue)
-                }.disposed(by: self.disposeBag)
-                
-                let url = URL(string:githubRepository.owner.avatarUrl ?? "")
-                self.downloadImage(from: url!)
-            }.disposed(by: self.disposeBag)
+        let cellRegistration = UICollectionView.CellRegistration { (cell: RepositoryCollectionViewCell, indexPath: IndexPath, itemIdentifier: UInt) in
+            let githubRepository = self.githubRepositoriesArray[indexPath.item]
+            cell.setModel(githubRepository)
         }
         
-        dataSource = DataSource(collectionView: collectionView) { (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: String) in
+        dataSource = DataSource(collectionView: collectionView) { (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: UInt) in
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
         
-        var snapshot = Snapshot()
-        snapshot.appendSections([0])
-        snapshot.appendItems(GithubRepository.sampleData.map { $0.fullName })
-        dataSource.apply(snapshot)
+        updateSnapshot()
+        
+        _ = repositories.subscribe { [self] array in
+            githubRepositoriesArray = array
+            updateSnapshot()
+        }.disposed(by: disposeBag)
         
         collectionView.dataSource = dataSource
-    }
-    
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
-    
-    func downloadImage(from url: URL) {
-        print("Download Started")
-        getData(from: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            // always update the UI from the main thread
-            DispatchQueue.main.async() { [weak self] in
-                self?.publishSubject.onNext(UIImage(data: data, scale: 2))
-            }
-        }
     }
     
     private func flowLayout() -> UICollectionViewFlowLayout{
@@ -99,6 +74,17 @@ class GithubRepositoryCollectionViewController: UICollectionViewController {
             onFailure: { Error in
                 print(Error.localizedDescription)
             })
+    }
+    
+    func updateSnapshot(reloading idsThatChanged: [UInt] = []) {
+        let ids = idsThatChanged.filter { id in githubRepositoriesArray.contains(where: { $0.id == id }) }
+        var snapshot = Snapshot()
+        snapshot.appendSections([0])
+        snapshot.appendItems(githubRepositoriesArray.map { $0.id })
+        if !ids.isEmpty {
+            snapshot.reloadItems(ids)
+        }
+        dataSource.apply(snapshot)
     }
 }
 

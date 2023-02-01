@@ -12,13 +12,13 @@ import RxSwiftExt
 import RxSwiftUtilities
 
 protocol RepositoriesListPresenterProtocol: RxPresenter {
-    var router: Router<RepositoriesListCollectionViewController> { get }
+    var router: Router<RepositoriesListViewController> { get }
     func buildOutput(with input: RepositoriesListPresenter.Input) -> RepositoriesListPresenter.Output
 }
 
 final class RepositoriesListPresenter {
     
-    var router: Router<RepositoriesListCollectionViewController>
+    var router: Router<RepositoriesListViewController>
     private let interactor: RepositoriesListInteractor
     
     private let disposeBag = DisposeBag()
@@ -27,7 +27,7 @@ final class RepositoriesListPresenter {
     
     private let activityIndicator = ActivityIndicator()
 
-    init(_ router: Router<RepositoriesListCollectionViewController>, _ interactor: RepositoriesListInteractor) {
+    init(_ router: Router<RepositoriesListViewController>, _ interactor: RepositoriesListInteractor) {
         self.router = router
         self.interactor = interactor
         

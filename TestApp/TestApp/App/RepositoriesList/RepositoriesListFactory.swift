@@ -10,13 +10,13 @@ import UIKit
 
 final class RepositoriesListFabric {
     class func assembledScreen(_ router: RepositoriesListRouter = .init(),
-                               networkSerivce: NetworkServiceProtocol = NetworkService.shared) -> RepositoriesListCollectionViewController {
+                               networkSerivce: NetworkServiceProtocol = NetworkService.shared) -> RepositoriesListViewController {
         let interactor = RepositoriesListInteractor(networkSerivce)
         let presenter = RepositoriesListPresenter(router, interactor)
         
         let flowLayout = UICollectionViewFlowLayout()
         
-        let viewController = RepositoriesListCollectionViewController(collectionViewLayout: flowLayout, presenter)
+        let viewController = RepositoriesListViewController(presenter)
         router.viewController = viewController
         return viewController
     }

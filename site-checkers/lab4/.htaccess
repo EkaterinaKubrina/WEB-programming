@@ -1,5 +1,0 @@
-AddDefaultCharset UTF-8
-
-RewriteEngine On
-RewriteRule ^play?$ play.php [NC,L]
-RewriteRule ^rules?$ rules.php [NC,L]

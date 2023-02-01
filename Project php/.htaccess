@@ -1,8 +1,0 @@
-AddDefaultCharset UTF-8
-
-RewriteEngine On
-RewriteRule ^contacts?$ contacts.php [NC,L]
-RewriteRule ^services?$ services.php [NC,L]
-RewriteRule ^aboutus?$ aboutus.php [NC,L]
-RewriteRule ^aboutus?$ aboutus.php [NC,L]
-RewriteRule ^success_send?$ index_send.php [NC,L]
